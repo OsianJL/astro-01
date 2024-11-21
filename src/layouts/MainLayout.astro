@@ -1,5 +1,6 @@
 ---
 import Footer from "../pages/components/footer.astro";
+import Header from "../pages/components/Header.astro";
 
 const {title} = Astro.props
 ---
@@ -13,13 +14,24 @@ const {title} = Astro.props
     <title>{title}</title>
   </head>
   <body>
+    <Header />
     <slot />
     <Footer />
   </body>
 </html>
+<!-- con is:global hacermos que estos estilos funcionen en toda la web -->
+<style is:global> 
 
-<style>
+*  {
+    box-sizing: border-box;
+}
   body {
+    margin: 0; 
     background-color: hotpink;
   }
+
+ img {
+    display: block; 
+    max-width: 100%;
+ }
 </style>
