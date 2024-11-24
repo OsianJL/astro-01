@@ -4,14 +4,29 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <!--HTML -->
-<MainLayout title="Pagina principal">  <!-- todo lo que ponga dentro de esta etiqueta se ma a colocar dentro de slot. --> 
-  <h1>Astro</h1>
+<MainLayout title="Pagina principal">
+  <!-- todo lo que ponga dentro de esta etiqueta se ma a colocar dentro de slot. -->
+  <h1 slot="before">Antes</h1>
+  <h1 class="text-3xl font-bold">Home</h1>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam reprehenderit
+    voluptatibus error excepturi. Neque, ipsum! Inventore animi tempore
+    consectetur dicta, nesciunt quaerat totam accusamus cumque error fuga quas
+    officiis iure ipsa suscipit quae corrupti? Vero eaque cupiditate sint iure
+    officia dolore similique consequatur voluptate veniam omnis labore quasi,
+    error, aliquam animi ipsum ad ut rem. Velit necessitatibus fugit nobis eos
+    ut deleniti facilis molestiae similique hic. Assumenda nam atque corrupti
+    adipisci. Minus nulla aperiam necessitatibus eius dolor nobis odit suscipit
+    harum ex inventore? Aperiam doloremque temporibus perferendis maiores quasi
+    repellat quibusdam illo optio eveniet, incidunt quam placeat voluptas,
+    libero ipsa?
+  </p>
 </MainLayout>
 
 <!--CSS -->
 
 <style>
-    body {
-        background-color: yellow;
-    }
+  body {
+    background-color: yellow;
+  }
 </style>

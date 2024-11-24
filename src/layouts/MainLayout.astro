@@ -3,10 +3,10 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
 interface Props {
-  title: string; 
+  title: string;
 }
 
-const {title} = Astro.props
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -18,24 +18,29 @@ const {title} = Astro.props
     <title>{title}</title>
   </head>
   <body>
+    <slot name="before" />
     <Header />
-    <slot />
+    <main class="mx-auto w-3/4 max-w-5xl my-8">
+      <slot />
+    </main>
+    <slot name="after" />
+    <!-- puedo tener varios slots -->
     <Footer />
   </body>
 </html>
 <!-- con is:global hacermos que estos estilos funcionen en toda la web -->
-<style is:global> 
-
-*  {
+<style is:global>
+  * {
     box-sizing: border-box;
-}
+  }
   body {
-    margin: 0; 
+    margin: 0;
     background-color: hotpink;
   }
 
- img {
-    display: block; 
+  img {
+    display: block;
     max-width: 100%;
- }
+  }
+  
 </style>
