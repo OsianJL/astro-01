@@ -1,0 +1,16 @@
+---
+import MainLayout from "./MainLayout.astro"
+import PostMenu from "../components/PostMenu.astro"
+
+const { frontmatter } = Astro.props
+const {title} = frontmatter
+---
+ 
+<MainLayout title={title}>
+    <div class="flex justify-center my-4 border-2 border-black">
+        <PostMenu />
+    </div>
+    <div class="border-2 border-indigo-500 bg-slate-400 prose mx-auto">
+        <slot />
+    </div>
+</MainLayout>

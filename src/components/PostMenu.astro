@@ -1,0 +1,22 @@
+---
+import { addIssueToContext } from "astro:schema"
+
+//top level async. no hace falta usar el async
+const files = await Astro.glob('../pages/blog/*.md')
+
+---
+
+<nav class="flex flex-col gap-4">
+
+ 
+      <!-- {files.map(file => (
+      <a href={file.url}>{file.frontmatter.title}</a>
+      ))} -->
+
+      {files.map(file => {
+        if (!file.frontmatter.title) return null; //! con esta versoion podemos añadir lógica adicional
+         return <a href={file.url}>{file.frontmatter.title}</a> 
+         })}
+  
+
+</nav>

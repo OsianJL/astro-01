@@ -1,0 +1,30 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PostMenu from "../../components/PostMenu.astro";
+
+const posts = await Astro.glob("./*.md");
+---
+
+<MainLayout title={"mis blogs"}>
+  <h1 class="text-3xl font-bold my-6">Blog</h1>
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      posts.map((post) => {
+        return (
+          <article class="p-2 rounded border-2">
+            <img src={post.frontmatter.picture} alt="" />
+            <h2>{post.frontmatter.title}</h2>
+            <p>{post.frontmatter.description}</p>
+          </article>
+        );
+      })
+    }}
+  </section>
+  <!-- <PostMenu /> -->
+</MainLayout>
+
+<style>
+  body {
+    background-color: rgb(105, 190, 102);
+  }
+</style>
