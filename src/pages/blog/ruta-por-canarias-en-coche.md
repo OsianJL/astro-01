@@ -2,7 +2,9 @@
 layout: '../../layouts/PostLayout.astro'
 title: Ruta por Canarias
 description: vaya viajazo por el mundo carioca
-picture: "https://picsum.photos/id/11/200"
+picture: 
+    src: https://picsum.photos/id/11/200
+    alt: Ruta fantastica
 
 ---
 # 🌴 Descubre Canarias: Ruta por las Islas Afortunadas 🏝️

@@ -1,26 +1,23 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import PostMenu from "../../components/PostMenu.astro";
+import GridArticle from "../../components/GridArticle.astro";
 
 const posts = await Astro.glob("./*.md");
 ---
 
 <MainLayout title={"mis blogs"}>
-  <h1 class="text-3xl font-bold my-6">Blog</h1>
-  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <h1 class="text-3xl font-bold my-6 text-center">Blog</h1>
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     {
       posts.map((post) => {
+        console.log(post.frontmatter)
         return (
-          <article class="p-2 rounded border-2">
-            <img src={post.frontmatter.picture} alt="" />
-            <h2>{post.frontmatter.title}</h2>
-            <p>{post.frontmatter.description}</p>
-          </article>
+         <GridArticle posts={post}></GridArticle>
         );
       })
-    }}
+    }
   </section>
-  <!-- <PostMenu /> -->
+ 
 </MainLayout>
 
 <style>

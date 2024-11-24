@@ -2,7 +2,9 @@
 layout: '../../layouts/PostLayout.astro'
 title: Ruta por Brasil
 description: vaya viajazo por el mundo carioca
-picture: "https://picsum.photos/id/10/200"
+picture: 
+    src: https://picsum.photos/id/10/200
+    alt: Ruta fantastica
 ---
 
 # 🌴 Ruta Exprés por Brasil: Naturaleza, Cultura y Aventura 🇧🇷

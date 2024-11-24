@@ -2,7 +2,9 @@
 layout: '../../layouts/PostLayout.astro'
 title: Ruta por italia
 description: vaya viajazo por el mundo carioca
-picture: "https://picsum.photos/id/12/200"
+picture: 
+    src: https://picsum.photos/id/12/200
+    alt: Ruta fantastica
 
 ---
 

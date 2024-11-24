@@ -2,7 +2,9 @@
 layout: '../../layouts/PostLayout.astro'
 title: Viaje a Paris
 description: vaya viajazo por el mundo carioca
-picture: "https://picsum.photos/id/13/200"
+picture: 
+    src: https://picsum.photos/id/13/200
+    alt: Ruta fantastica
 
 ---
 
