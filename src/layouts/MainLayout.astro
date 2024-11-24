@@ -18,12 +18,14 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot name="before" />
+    <!-- <slot name="before" /> -->
     <Header />
-    <main class="mx-auto w-3/4 max-w-5xl my-8">
-      <slot />
+    <main class="mx-auto w-3/4 max-w-5xl">
+      <div class="min-h-screen flex flex-col grow">
+        <slot />
+      </div>
     </main>
-    <slot name="after" />
+    <!-- <slot name="after" /> -->
     <!-- puedo tener varios slots -->
     <Footer />
   </body>

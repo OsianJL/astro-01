@@ -1,32 +1,26 @@
 ---
 // interface Props {
 //   posts: {
-//     layout?: string; 
-//     url?: string;
-//     frontmatter: {
-//       title: string;
-//       description: string;
-//       picture: {
-//         src: string;
-//         alt: string;
-//       };
+//     title: string;
+//     description: string;
+//     picture: {
+//       src: string;
+//       alt: string;
 //     };
 //   };
+//   url?: string;
 // }
 
-const { posts } = Astro.props;
+
+const { posts, url } = Astro.props;
 ---
 
 <article class="p-2 rounded border-2 border-green-600">
-  <a href={posts.url}>
-    <img
-      class="w-full"
-      src={posts.frontmatter.picture.src}
-      alt={posts.frontmatter.picture.alt}
-    />
+  <a href={url}>
+    <img class="w-full" src={posts.picture.src} alt={posts.picture.alt} />
     <h2 class="text-2xl font-bold py-2 text-center">
-      {posts.frontmatter.title}
+      {posts.title}
     </h2>
-    <p class="text-center">{posts.frontmatter.description}</p>
+    <p class="text-center">{posts.description}</p>
   </a>
 </article>
