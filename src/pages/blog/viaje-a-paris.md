@@ -5,7 +5,7 @@ description: vaya viajazo por el mundo carioca
 picture: 
     src: https://picsum.photos/id/13/200
     alt: Ruta fantastica
-
+tags: [viaje, museos, arte]
 ---
 
 # 🗼 Un Viaje a París: La Ciudad de la Luz ✨

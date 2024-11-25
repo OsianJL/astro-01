@@ -5,6 +5,7 @@ description: vaya viajazo por el mundo carioca
 picture: 
     src: https://picsum.photos/id/10/200
     alt: Ruta fantastica
+tags: [ruta, viaje, playas]
 ---
 
 # 🌴 Ruta Exprés por Brasil: Naturaleza, Cultura y Aventura 🇧🇷

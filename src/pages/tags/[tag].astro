@@ -8,8 +8,8 @@ type Tag = string;
 
 export async function getStaticPaths() {
   const files = await Astro.glob('../blog/*.{md,mdx}');
-
   const tags: Tag[] = files.map(file => file.frontmatter.tags).flat();
+  console.log(tags)
 
   // versión más moderna juntando un map y un flat
   // const tags = files.flatMap(file => file.frontmatter.tags);

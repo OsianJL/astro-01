@@ -12,7 +12,7 @@ const post = await Astro.glob<Frontmatter>('./*.md');
   <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     {
       post.map((post) => {
-        console.log(post.frontmatter)
+       
         return (
          <GridArticle post={post.frontmatter as Frontmatter} url={post.url}></GridArticle>
         );

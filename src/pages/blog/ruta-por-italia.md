@@ -5,7 +5,7 @@ description: vaya viajazo por el mundo carioca
 picture: 
     src: https://picsum.photos/id/12/200
     alt: Ruta fantastica
-
+tags: [ruta, historia, museos, roma]
 ---
 
 # 🌍 Una Ruta Inolvidable por Italia: ¡Descubre la Bella Vita! 🇮🇹

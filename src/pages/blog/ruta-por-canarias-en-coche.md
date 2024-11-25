@@ -5,7 +5,7 @@ description: vaya viajazo por el mundo carioca
 picture: 
     src: https://picsum.photos/id/11/200
     alt: Ruta fantastica
-
+tags: [ruta, gastronomia, playas]
 ---
 # 🌴 Descubre Canarias: Ruta por las Islas Afortunadas 🏝️
 
