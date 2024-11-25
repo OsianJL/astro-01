@@ -1,18 +1,20 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import GridArticle from "../../components/GridArticle.astro";
+import type { Frontmatter } from "../../types/types";
 
-const posts = await Astro.glob("./*.md");
+
+const post = await Astro.glob<Frontmatter>('./*.md');
 ---
 
 <MainLayout title={"mis blogs"}>
   <h1 class="text-3xl font-bold my-6 text-center">Blog</h1>
   <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     {
-      posts.map((post) => {
+      post.map((post) => {
         console.log(post.frontmatter)
         return (
-         <GridArticle posts={post.frontmatter} url={post.url}></GridArticle>
+         <GridArticle post={post.frontmatter as Frontmatter} url={post.url}></GridArticle>
         );
       })
     }

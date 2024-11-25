@@ -1,0 +1,44 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+
+
+
+type Tag = string;
+
+export async function getStaticPaths() {
+  const files = await Astro.glob('../blog/*.{md,mdx}');
+
+  const tags: Tag[] = files.map(file => file.frontmatter.tags).flat();
+
+  // versión más moderna juntando un map y un flat
+  // const tags = files.flatMap(file => file.frontmatter.tags);
+
+
+  // Crear un array solo con los tagas sin REPETIR
+  const uniqueTags: Tag[] = [...new Set(tags)];
+
+
+  // Sintaxis de ASTRO, nos piden devolver un array con un objeto que tenga la propiedad params y
+  // dentro una propiedad con el nombre del parametro dinamico, en este caso tag, pero podria ser author o
+  // lo  que sea [author].astro   [tag].astro
+//   const routes = uniqueAuthors.map(author => ({ params: { author: author } }));
+  const routes = uniqueTags.map(tag => ({ params: { tag: tag } }));
+
+  return routes;
+}
+
+const {tag} = Astro.params
+---
+
+
+<MainLayout title=`todos los posts con la etiqueta: ${tag}`>
+
+    <h2>lista de posts sobre: <span>{tag}</span></h2>
+
+    <section>
+        
+    </section>
+
+
+</MainLayout>
