@@ -1,44 +1,52 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
-
-
-
+import MainLayout from "../../layouts/MainLayout.astro";
+import GridArticle from "../../components/GridArticle.astro";
+import { type Frontmatter } from "../../types/types";
 
 type Tag = string;
 
 export async function getStaticPaths() {
-  const files = await Astro.glob('../blog/*.{md,mdx}');
-  const tags: Tag[] = files.map(file => file.frontmatter.tags).flat();
-  console.log(tags)
+  const files = await Astro.glob("../blog/*.{md,mdx}");
+  const tags: Tag[] = files.map((file) => file.frontmatter.tags).flat();
+  console.log(files);
 
   // versión más moderna juntando un map y un flat
   // const tags = files.flatMap(file => file.frontmatter.tags);
 
-
   // Crear un array solo con los tagas sin REPETIR
   const uniqueTags: Tag[] = [...new Set(tags)];
-
 
   // Sintaxis de ASTRO, nos piden devolver un array con un objeto que tenga la propiedad params y
   // dentro una propiedad con el nombre del parametro dinamico, en este caso tag, pero podria ser author o
   // lo  que sea [author].astro   [tag].astro
-//   const routes = uniqueAuthors.map(author => ({ params: { author: author } }));
-  const routes = uniqueTags.map(tag => ({ params: { tag: tag } }));
+  //   const routes = uniqueAuthors.map(author => ({ params: { author: author } }));
+  const routes = uniqueTags.map((tag) => {
+
+    const filsteredPosts:any = files.filter(file => file.frontmatter.tags.includes(tag))
+
+    return {
+      params: { tag: tag },
+      props: { posts: filsteredPosts }
+    
+    }});
+
+     
 
   return routes;
 }
 
-const {tag} = Astro.params
+const { tag } = Astro.params;
+
+const { posts } = Astro.props; 
 ---
 
-
 <MainLayout title=`todos los posts con la etiqueta: ${tag}`>
+  <h2 class="text-2xl font-bold text-center">
+    lista de posts sobre: <span class="text-3xl underline">{tag}</span>
+  </h2>
 
-    <h2>lista de posts sobre: <span>{tag}</span></h2>
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-10 w-3/4 mt-10">
 
-    <section>
-        
-    </section>
-
-
+    {posts.map((post: { frontmatter: Frontmatter; url: string }) => <GridArticle post={post.frontmatter as Frontmatter} url={post.url} />)}
+  </section>
 </MainLayout>

@@ -14,7 +14,7 @@ const post = await Astro.glob<Frontmatter>('./*.md');
       post.map((post) => {
        
         return (
-         <GridArticle post={post.frontmatter as Frontmatter} url={post.url}></GridArticle>
+         <GridArticle post={post.frontmatter as Frontmatter} url={post.url}/>
         );
       })
     }
